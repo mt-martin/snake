@@ -84,35 +84,36 @@ public class Main extends Application {
 			@Override
 			public void handle(ActionEvent actionEvent) {
 				switch (currentDirection) {
-					case UP -> {
+					case UP:
 						if (snakeHead.getTranslateY() <= 0) {
 							snakeHead.setTranslateY(WINDOW_SIZE - TILE_SIZE);
 						} else {
 							snakeHead.setTranslateY(snakeHead.getTranslateY() - TILE_SIZE);
 						}
-					}
-					case DOWN -> {
+						break;
+					case DOWN:
 						if (snakeHead.getTranslateY() >= WINDOW_SIZE - TILE_SIZE) {
 							snakeHead.setTranslateY(0);
 						} else {
 							snakeHead.setTranslateY(snakeHead.getTranslateY() + TILE_SIZE);
 						}
-					}
-					case RIGHT -> {
+						break;
+					case RIGHT:
 						if (snakeHead.getTranslateX() >= WINDOW_SIZE - TILE_SIZE) {
 							snakeHead.setTranslateX(0);
 						} else {
 							snakeHead.setTranslateX(snakeHead.getTranslateX() + TILE_SIZE);
 						}
-					}
-					case LEFT -> {
+						break;
+					case LEFT:
 						if (snakeHead.getTranslateX() <= 0) {
 							snakeHead.setTranslateX(WINDOW_SIZE - TILE_SIZE);
 						} else {
 							snakeHead.setTranslateX(snakeHead.getTranslateX() - TILE_SIZE);
 						}
-					}
-					default -> throw new IllegalStateException("Unexpected value: " + currentDirection);
+						break;
+					default:
+						throw new IllegalStateException("Unexpected value: " + currentDirection);
 				}
 
 				snakePositionHistory.addFirst(new Pair<>(snakeHead.getTranslateX(), snakeHead.getTranslateY()));
